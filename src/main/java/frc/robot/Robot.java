@@ -39,7 +39,9 @@ private XboxController controller;
    */
   @Override
   public void robotInit() {
-    
+
+
+    Constants.imu.calibrate();
     
     Constants.m_rightMotor.restoreFactoryDefaults();
     Constants.m_leftMotor.restoreFactoryDefaults();
