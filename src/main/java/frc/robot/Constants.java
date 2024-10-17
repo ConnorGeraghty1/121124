@@ -35,6 +35,8 @@ public final class Constants {
   public static final int rightRearID = 2;
   public static final int rightFrontID = 1; 
 
+  public static final ADIS16470_IMU imu = new ADIS16470_IMU();
+
   public static class DrivetrainConstants {
     // PWM ports/CAN IDs for motor controllers
     public static final int kLeftRearID = 3;
