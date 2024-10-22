@@ -51,26 +51,9 @@ public class RobotContainer {
    */
   private void configureBindings() {
     // Set the default command for the drivetrain to drive using the joysticks
-    m_drivetrain.setDefaultCommand(
-        new RunCommand(
-            () ->
-                m_drivetrain.arcadeDrive(
-                    -m_driverController.getLeftY(), -m_driverController.getRightX()),
-            m_drivetrain));
+    m_drivetrain.setDefaultCommand(new RunCommand(() -> m_drivetrain.arcadeDrive(-m_driverController.getLeftY(), -m_driverController.getRightX()), m_drivetrain));
 
-    /*Create an inline sequence to run when the operator presses and holds the A (green) button. Run the PrepareLaunch
-     * command for 1 seconds and then run the LaunchNote command */
-    m_operatorController
-        .a()
-        .whileTrue(
-            new PrepareLaunch(m_launcher)
-                .withTimeout(LauncherConstants.kLauncherDelay)
-                .andThen(new LaunchNote(m_launcher))
-                .handleInterrupt(() -> m_launcher.stop()));
-
-    // Set up a binding to run the intake command while the operator is pressing and holding the
-    // left Bumper
-    m_operatorController.leftBumper().whileTrue(m_launcher.getIntakeCommand());
+    (m_operatorController.start().onTrue(new ResetGyro()));
   }
 
   /**
