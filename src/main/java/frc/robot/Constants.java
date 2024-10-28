@@ -7,6 +7,8 @@ package frc.robot;
 import frc.robot.subsystems.*;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType; //Probably responsible for an error - class "CANSparkLowLevel" is now deprecated
+import com.analog.adis16470.frc.ADIS16470_IMU;
+
 
 
 /**
