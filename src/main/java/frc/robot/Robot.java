@@ -10,7 +10,7 @@ import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-//Joseph I know you're gonna see this soon, should this have "import edu.wpi.first.wpilibj2.command.CommandBase" in it?
+//Joseph I know you're gonna see this soon, should the commands have "import edu.wpi.first.wpilibj2.command.CommandBase" in them?
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
