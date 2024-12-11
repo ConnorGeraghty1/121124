@@ -1,6 +1,9 @@
-import edu.wpi.first.wpilibj2.command.CommandBase;
+package frc.robot.commands;
 
-public class RunMotorCommand extends CommandBase {
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.subsystems.MotorSubsystem;
+
+public class RunMotorCommand extends Command {
     private final MotorSubsystem motorSubsystem;
 
     public RunMotorCommand(MotorSubsystem subsystem) {
@@ -10,6 +13,7 @@ public class RunMotorCommand extends CommandBase {
 
     @Override
     public void execute() {
+        System.out.println("Executing Run Command");
         motorSubsystem.setSpeed(0.5); // Set motor to half speed
     }
 
