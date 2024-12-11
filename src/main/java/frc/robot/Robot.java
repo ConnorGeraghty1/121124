@@ -4,13 +4,10 @@
 
 package frc.robot;
 
-
-
 import edu.wpi.first.util.sendable.SendableRegistry;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
-//Joseph I know you're gonna see this soon, should the commands have "import edu.wpi.first.wpilibj2.command.CommandBase" in them?
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -24,14 +21,7 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
  */
 public class Robot extends TimedRobot {
 
-private DifferentialDrive m_robotDrive;
-private XboxController controller;
-
-
-
-
-  private Command m_autonomousCommand;
-
+  private XboxController controller;
   private RobotContainer m_robotContainer;
 
   /**
@@ -42,43 +32,9 @@ private XboxController controller;
   public void robotInit() {
     
     
-    Constants.m_rightMotor.restoreFactoryDefaults();
-    Constants.m_leftMotor.restoreFactoryDefaults();
-    Constants.m_leftMotor1.restoreFactoryDefaults();
-    Constants.m_rightMotor1.restoreFactoryDefaults();
-
-    
-    Constants.m_leftMotor1.follow(Constants.m_leftMotor);
-    Constants.m_rightMotor1.follow(Constants.m_rightMotor, true); 
-
-
-    //Make back motors children
-    SendableRegistry.addChild(m_robotDrive, Constants.m_leftMotor);
-    SendableRegistry.addChild(m_robotDrive, Constants.m_rightMotor);
-    
-    // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
-    // autonomous chooser on the dashboard.
     m_robotContainer = new RobotContainer();
-
-    // We need to invert one side of the drivetrain so that positive voltages
-    // result in both sides moving forward. Depending on how your robot's
-    // gearbox is constructed, you might have to invert the left side instead.
-
-      
-
-
-    // m_rightMotor.setInverted(false);
-    // m_leftMotor.setInverted(false);
-    // m_rightMotor1.setInverted(false);
-    // m_leftMotor1.setInverted(false);
-    
-    Constants.m_rightMotor.burnFlash(); //flash motors
-    Constants.m_leftMotor.burnFlash();
-    Constants.m_rightMotor1.burnFlash();
-    Constants.m_leftMotor1.burnFlash();
-    
-    m_robotDrive = new DifferentialDrive(Constants.m_leftMotor::set, Constants.m_rightMotor::set); //instantite drive train
     controller = new XboxController(0); //instantiate controller
+    
   }
 
   /**
@@ -121,27 +77,21 @@ private XboxController controller;
 
   @Override
   public void teleopInit() {
-    // This makes sure that the autonomous stops running when
-    // teleop starts running. If you want the autonomous to
-    // continue until interrupted by another command, remove
-    // this line or comment it out.
-    if (m_autonomousCommand != null) {
-      m_autonomousCommand.cancel();
-    }
+    
+    
   }
 
   /** This function is called periodically during operator control. */
   @Override
   public void teleopPeriodic() {
-    m_robotDrive.arcadeDrive(controller.getLeftY(), controller.getRightX());
-    System.out.println(Constants.m_rightMotor1.getAppliedOutput());
-    System.out.println(Constants.m_leftMotor1.getAppliedOutput());
+    
+    
   }
 
   @Override
   public void testInit() {
-    // Cancels all running commands at the start of test mode.
-    CommandScheduler.getInstance().cancelAll();
+    
+    
   }
 
   /** This function is called periodically during test mode. */
